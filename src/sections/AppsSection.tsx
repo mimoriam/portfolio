@@ -15,16 +15,16 @@ export function AppsSection({ apps, onOpenCaseStudy }: AppsSectionProps) {
   const filterOptions = [
     { id: 'all', label: 'All Shipped Apps', count: apps.length },
     { id: 'featured', label: 'Featured Flagships', count: apps.filter((a) => a.featured).length },
-    { id: 'ai-vision', label: 'AI & Computer Vision', count: 2 },
-    { id: 'sensors', label: 'Sensors & Hardware', count: 2 },
-    { id: 'productivity', label: 'Productivity & Finance', count: 4 },
+    { id: 'sensors', label: 'Sensors & GPS Navigation', count: apps.filter((a) => a.id === 'speedometer' || a.id === 'decibel' || a.id === 'cube').length },
+    { id: 'ai-vision', label: 'AI & Computer Vision', count: apps.filter((a) => a.id === 'cube' || a.id === 'plant').length },
+    { id: 'productivity', label: 'Productivity & Utilities', count: apps.filter((a) => a.id === 'buck' || a.id === 'pomodoro' || a.id === 'car' || a.id === 'nofap').length },
   ];
 
   const filteredApps = apps.filter((app) => {
     if (selectedFilter === 'all') return true;
     if (selectedFilter === 'featured') return app.featured;
+    if (selectedFilter === 'sensors') return app.id === 'speedometer' || app.id === 'decibel' || app.id === 'cube';
     if (selectedFilter === 'ai-vision') return app.id === 'cube' || app.id === 'plant';
-    if (selectedFilter === 'sensors') return app.id === 'decibel' || app.id === 'cube';
     if (selectedFilter === 'productivity') return app.id === 'buck' || app.id === 'pomodoro' || app.id === 'car' || app.id === 'nofap';
     return true;
   });
@@ -38,7 +38,7 @@ export function AppsSection({ apps, onOpenCaseStudy }: AppsSectionProps) {
       <SectionHeader
         badge="Live on Google Play"
         title="Production Mobile Apps"
-        subtitle="8 fully published Android applications built with Flutter. Real users, real store listings, and real production engineering challenges."
+        subtitle="9 fully published Android applications built with Flutter. Real users, real store listings, and real production engineering challenges."
       />
 
       {/* Filter Tabs Bar */}

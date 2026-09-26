@@ -67,7 +67,7 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
         <span>&copy; {currentYear} Humza Asif. All rights reserved.</span>
-        <span>Built with React, TypeScript, Tailwind CSS &amp; Vite • Deployed on GitHub Pages</span>
+        <span>Available for Mobile &amp; Flutter Engineering Opportunities</span>
       </div>
     </footer>
   );

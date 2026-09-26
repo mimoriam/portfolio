@@ -134,24 +134,32 @@ export function CvModal({ isOpen, onClose }: CvModalProps) {
               <span>Published Google Play Mobile Applications</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Creator and developer of 8 production applications available on the Google Play Store, spanning cognitive healthcare, personal finance, computer vision, acoustic telemetry, automotive maintenance, and productivity.
+              Creator and developer of 9 production applications available on the Google Play Store, spanning GPS speed telemetry, cognitive healthcare, personal finance, computer vision, acoustic telemetry, automotive maintenance, and productivity.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block">TapOkay</span>
-                <span className="text-[11px] text-slate-400">Check-In &amp; Brain Games</span>
+                <span className="font-semibold text-white block truncate">Speedometer PRO</span>
+                <span className="text-[11px] text-slate-400">GPS &amp; HUD Telemetry</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block">Buck</span>
-                <span className="text-[11px] text-slate-400">Spending &amp; Budget Tracker</span>
+                <span className="font-semibold text-white block truncate">TapOkay</span>
+                <span className="text-[11px] text-slate-400">Cognitive Wellness &amp; Games</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block">Cube Solver</span>
+                <span className="font-semibold text-white block truncate">Buck</span>
+                <span className="text-[11px] text-slate-400">Offline Finance Tracker</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+                <span className="font-semibold text-white block truncate">Cube Solver</span>
                 <span className="text-[11px] text-slate-400">3D Camera Puzzle Solver</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block">Pot</span>
-                <span className="text-[11px] text-slate-400">AI Plant Identifier &amp; Care</span>
+                <span className="font-semibold text-white block truncate">Nox Decibel</span>
+                <span className="text-[11px] text-slate-400">Acoustic Sound Level Meter</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+                <span className="font-semibold text-white block truncate">Pot AI</span>
+                <span className="text-[11px] text-slate-400">Plant Identifier &amp; Care</span>
               </div>
             </div>
           </div>
@@ -247,16 +255,18 @@ export function CvModal({ isOpen, onClose }: CvModalProps) {
               <span>Education</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
               {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-bold text-white">{edu.degree}</h4>
-                    <span className="text-xs font-mono text-slate-400">{edu.period}</span>
+                <div key={idx} className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-start justify-between gap-1 mb-1">
+                      <h4 className="text-xs sm:text-sm font-bold text-white leading-snug">{edu.degree}</h4>
+                      <span className="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">{edu.period}</span>
+                    </div>
+                    <p className="text-xs text-blue-400 font-medium">{edu.institution}</p>
                   </div>
-                  <p className="text-xs text-slate-400 font-medium">{edu.institution}</p>
                   {edu.details && (
-                    <p className="text-[11px] text-slate-500 pt-1 leading-relaxed">{edu.details}</p>
+                    <p className="text-[11px] text-slate-400 pt-1 leading-relaxed">{edu.details}</p>
                   )}
                 </div>
               ))}

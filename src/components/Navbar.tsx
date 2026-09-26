@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, FileText, Mail } from 'lucide-react';
+import { Menu, X, Mail } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenCv: () => void;
+  onOpenCv?: () => void;
 }
 
-export function Navbar({ onOpenCv }: NavbarProps) {
+export function Navbar({ onOpenCv: _onOpenCv }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -83,14 +83,6 @@ export function Navbar({ onOpenCv }: NavbarProps) {
         {/* Right CTA Actions */}
         <div className="hidden sm:flex items-center gap-2.5">
           <button
-            onClick={onOpenCv}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 transition-all shadow-sm"
-          >
-            <FileText className="w-3.5 h-3.5 text-blue-400" />
-            <span>Curriculum Vitae</span>
-          </button>
-
-          <button
             onClick={() => handleLinkClick('#contact')}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
@@ -101,14 +93,6 @@ export function Navbar({ onOpenCv }: NavbarProps) {
 
         {/* Mobile Hamburger Toggle */}
         <div className="flex sm:hidden items-center gap-2">
-          <button
-            onClick={onOpenCv}
-            className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-blue-400"
-            aria-label="View Resume"
-          >
-            <FileText className="w-4 h-4" />
-          </button>
-
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -135,17 +119,6 @@ export function Navbar({ onOpenCv }: NavbarProps) {
           </nav>
 
           <div className="pt-4 mt-3 border-t border-slate-800 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenCv();
-              }}
-              className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-200 bg-slate-900 border border-slate-700/80 flex items-center justify-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-blue-400" />
-              <span>Inspect Full CV / Resume</span>
-            </button>
-
             <button
               onClick={() => handleLinkClick('#contact')}
               className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30"

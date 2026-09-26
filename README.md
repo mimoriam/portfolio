@@ -1,6 +1,6 @@
 # Humza Asif — Mobile App Developer & Flutter Specialist Portfolio
 
-> **Production mobile developer portfolio showcasing 8 published applications on Google Play, cross-platform Flutter architecture, native device hardware integrations, and end-to-end product delivery.**
+> **Production mobile developer portfolio showcasing 9 published applications on Google Play, cross-platform Flutter architecture, native device hardware integrations, and end-to-end product delivery.**
 
 [![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
@@ -14,14 +14,15 @@
 
 All projects featured on this portfolio are verified, production applications available on the **Google Play Store**:
 
-1. **[TapOkay](https://play.google.com/store/apps/details?id=com.app.tapokay)** (`com.app.tapokay`) — Daily wellness check-in, 10 cognitive brain games, encrypted health safety vault, and caregiver emergency alerts for independent seniors.
-2. **[Buck / Budget Manager](https://play.google.com/store/apps/details?id=xtra.budget.manager)** (`xtra.budget.manager`) — Personal expense manager, multi-currency budget planner, recurring subscription tracker, and visual analytics.
-3. **[Cube Solver](https://play.google.com/store/apps/details?id=xtra.cube.solver.cube_solver)** (`xtra.cube.solver.cube_solver`) — Real-time camera facet scanner, 3D interactive cube visualizer, and optimal move solver for 3x3, 4x4, and 5x5 cubes.
-4. **[Pot AI Plant Identifier](https://play.google.com/store/apps/details?id=ai.plant.detector)** (`ai.plant.detector`) — Neural plant recognition across 500,000+ species, disease diagnostics, soil analysis, and weather-adaptive watering schedules.
-5. **[Nox Decibel Meter](https://play.google.com/store/apps/details?id=com.appxtrastudio.decimalmeter)** (`com.appxtrastudio.decimalmeter`) — Real-time hardware microphone sound pressure level (SPL) tracking, acoustic calibration, and audiometric gauges.
-6. **[CarO Car Maintenance](https://play.google.com/store/apps/details?id=xtra.car.maintenance)** (`xtra.car.maintenance`) — Multi-vehicle maintenance logbook, mileage-based service reminders, and fuel economy efficiency tracker.
-7. **[Aim Pomodoro Timer](https://play.google.com/store/apps/details?id=xtra.pomodoro.timer)** (`xtra.pomodoro.timer`) — Distraction-free focus timer, custom interval work cycles, background task execution, and productivity streaks.
-8. **[Raze Quit Addiction](https://play.google.com/store/apps/details?id=xtra.no.fap)** (`xtra.no.fap`) — Self-improvement and recovery companion featuring precision streak counters, relapse pattern logging, and community accountability.
+1. **[Speedometer PRO・MPH Tracker](https://play.google.com/store/apps/details?id=com.appxtrastudio.speedometer)** (`com.appxtrastudio.speedometer`) — GPS-based real-time speed tracking, Heads-Up Display (HUD) windshield projection, high-speed alerts, trip log history, and multi-unit metrics.
+2. **[TapOkay](https://play.google.com/store/apps/details?id=com.app.tapokay)** (`com.app.tapokay`) — Daily wellness check-in, 10 cognitive brain games, encrypted health safety vault, and caregiver emergency alerts for independent seniors.
+3. **[Buck / Budget Manager](https://play.google.com/store/apps/details?id=xtra.budget.manager)** (`xtra.budget.manager`) — Personal expense manager, multi-currency budget planner, recurring subscription tracker, and visual analytics.
+4. **[Cube Solver](https://play.google.com/store/apps/details?id=xtra.cube.solver.cube_solver)** (`xtra.cube.solver.cube_solver`) — Real-time camera facet scanner, 3D interactive cube visualizer, and optimal move solver for 3x3, 4x4, and 5x5 cubes.
+5. **[Pot AI Plant Identifier](https://play.google.com/store/apps/details?id=ai.plant.detector)** (`ai.plant.detector`) — Neural plant recognition across 500,000+ species, disease diagnostics, soil analysis, and weather-adaptive watering schedules.
+6. **[Nox Decibel Meter](https://play.google.com/store/apps/details?id=com.appxtrastudio.decimalmeter)** (`com.appxtrastudio.decimalmeter`) — Real-time hardware microphone sound pressure level (SPL) tracking, acoustic calibration, and audiometric gauges.
+7. **[CarO Car Maintenance](https://play.google.com/store/apps/details?id=xtra.car.maintenance)** (`xtra.car.maintenance`) — Multi-vehicle maintenance logbook, mileage-based service reminders, and fuel economy efficiency tracker.
+8. **[Aim Pomodoro Timer](https://play.google.com/store/apps/details?id=xtra.pomodoro.timer)** (`xtra.pomodoro.timer`) — Distraction-free focus timer, custom interval work cycles, background task execution, and productivity streaks.
+9. **[Raze Quit Addiction](https://play.google.com/store/apps/details?id=xtra.no.fap)** (`xtra.no.fap`) — Self-improvement and recovery companion featuring precision streak counters, relapse pattern logging, and community accountability.
 
 ---
 
@@ -87,9 +88,9 @@ All content is cleanly decoupled from UI components:
 ```
 src/
 ├── data/
-│   ├── apps.ts           # 8 Google Play apps metadata, screenshots, and deep case studies
+│   ├── apps.ts           # 9 Google Play apps metadata, screenshots, and deep case studies
 │   ├── experience.ts     # Career history from CV
-│   ├── education.ts      # B.Sc. Computer Science & Pre-Engineering details
+│   ├── education.ts      # M.Sc. & B.Sc. Computer Science & Pre-Engineering details
 │   ├── research.ts       # IEEE ICET 2023 published paper & DOI link
 │   ├── expertise.ts      # Mobile pillars & organized tech stack hierarchy
 │   └── lifecycle.ts      # "From Idea to App Store" 6-step roadmap
