@@ -2,8 +2,7 @@
 
 <div align="center">
 
-  [![Live Portfolio](https://img.shields.io/badge/Live%20Portfolio-humza.dev.portfolio.it-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://humza.dev.portfolio.it)
-  [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-mimoriam.github.io%2Fportfolio-059669?style=for-the-badge&logo=github&logoColor=white)](https://mimoriam.github.io/portfolio/)
+  [![Live Portfolio](https://img.shields.io/badge/Live%20Portfolio-mimoriam.github.io%2Fportfolio-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mimoriam.github.io/portfolio/)
 
   <br />
 
@@ -25,20 +24,16 @@
 
 ---
 
-## 🌐 Live URLs & Custom Domain
+## 🌐 Live Portfolio URL
 
-- **Primary Custom Domain**: [https://humza.dev.portfolio.it](https://humza.dev.portfolio.it)
-- **Direct GitHub Pages Mirror**: [https://mimoriam.github.io/portfolio/](https://mimoriam.github.io/portfolio/)
+- **Live Website**: [https://mimoriam.github.io/portfolio/](https://mimoriam.github.io/portfolio/)
 
-### 🔧 Custom Domain Configuration (`humza.dev.portfolio.it`)
-The repository includes pre-configured `CNAME` files in both the repository root and `public/CNAME`. To connect your custom domain to GitHub Pages:
-1. In your DNS provider for `portfolio.it`, create a **CNAME record**:
-   - **Host / Name**: `humza.dev` (or `humza.dev.portfolio.it` depending on provider)
+### 🔧 Connecting a Custom Domain (Optional)
+If you own a custom domain (e.g. `humza.dev`, `humzadev.com`, or any subdomain):
+1. In your domain registrar (GoDaddy, Namecheap, Cloudflare, etc.), add a **CNAME record**:
+   - **Host / Name**: `@` or your desired subdomain (e.g., `portfolio` or `humza`)
    - **Target / Value**: `mimoriam.github.io`
-   - **TTL**: Automatic / 300 seconds
-2. In your repository on GitHub:
-   - Go to **Settings** &rarr; **Pages**
-   - Under **Custom domain**, verify that `humza.dev.portfolio.it` is entered and check **Enforce HTTPS**.
+2. Go to your GitHub repo **Settings** &rarr; **Pages** &rarr; **Custom domain**, enter your domain name, and enable **Enforce HTTPS**.
 
 ---
 
