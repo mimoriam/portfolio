@@ -59,7 +59,7 @@ export function LifecycleSection() {
             Proven End-to-End Execution
           </h4>
           <p className="text-xs text-slate-400 max-w-2xl">
-            Having built and shipped 9 independent apps on Google Play, I handle every constraint: memory overhead, offline fallbacks, Google Play policies, keystore signing, and responsive device layouts.
+            Having built and shipped 8 independent apps on Google Play, I handle every constraint: memory overhead, offline fallbacks, Google Play policies, keystore signing, and responsive device layouts.
           </p>
         </div>
         <a

@@ -413,57 +413,6 @@ export const APPS_DATA: AppProject[] = [
       role: 'Mobile Frontend & Flutter Engineer',
       techStack: ['Flutter', 'Dart', 'Data Encryption', 'REST APIs', 'Local Notifications', 'State Management']
     }
-  },
-  {
-    id: 'speedometer',
-    name: 'Speedometer PRO',
-    publicTitle: 'Speedometer PRO・MPH Tracker',
-    packageId: 'com.appxtrastudio.speedometer',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.appxtrastudio.speedometer',
-    category: 'Auto & Navigation',
-    rating: 4.5,
-    tagline: 'High-precision GPS velocity tracking, digital odometer, Heads-Up Display (HUD Mode), and route analytics.',
-    oneLiner: 'Delivers real-time velocity monitoring, distance calculation, speed alarms, and night windshield reflection for drivers and cyclists.',
-    icon: './images/apps/speedometer/icon.webp',
-    screenshots: [
-      './images/apps/speedometer/screenshot-1.webp',
-      './images/apps/speedometer/screenshot-2.webp',
-      './images/apps/speedometer/screenshot-3.webp',
-      './images/apps/speedometer/screenshot-4.webp',
-      './images/apps/speedometer/screenshot-5.webp',
-    ],
-    featured: false,
-    accentColor: '#0ea5e9', // sky blue
-    badgeText: 'GPS & Telemetry',
-    platform: 'Cross-Platform (Flutter)',
-    tags: ['Flutter', 'Dart', 'Location & GPS APIs', 'HUD Mode', 'Digital Compass', 'CustomPainter', 'Local Persistence'],
-    metrics: [
-      { label: 'Rating', value: '4.5 ★' },
-      { label: 'Accuracy', value: 'GPS Real-Time' },
-      { label: 'Modes', value: 'HUD Windshield' },
-      { label: 'Units', value: 'MPH & KM/H' },
-    ],
-    caseStudy: {
-      overview: 'Speedometer PRO is a GPS-powered velocity measurement and journey telemetry tool designed for automobiles, motorcycles, bicycles, and outdoor training. Features real-time speed tracking in MPH and KM/H, trip distance calculation, altitude elevation, speed limit warning alerts, and an inverted Heads-Up Display (HUD) mode for night driving windshield reflection.',
-      problem: 'Vehicle dashboard speedometers can suffer from calibration drift, and bicycles or off-road vehicles frequently lack speedometers entirely. Most generic GPS apps drain battery excessively, exhibit high GPS lag, or lack a safe windshield HUD mode for nocturnal driving.',
-      solution: 'Engineered an energy-efficient GPS tracking app with Kalman filter velocity smoothing, customizable analog/digital gauges, over-speed alarm notifications, integrated digital compass, and an inverted HUD mode that projects speed cleanly onto the windshield glass.',
-      technicalArchitecture: 'Integrates Flutter with native Android Location Services and Geolocator stream pipelines. Processes high-frequency GPS coordinate changes through velocity smoothing algorithms to eliminate satellite signal jitter. CustomPainter renders responsive dial needles and inverted mirror coordinates for HUD projection.',
-      engineeringHighlights: [
-        'Kalman Velocity Filtering: Implemented real-time GPS coordinate and speed smoothing to prevent sudden reading fluctuations caused by multipath signal interference.',
-        'Heads-Up Display (HUD Mode): Created an inverted mirror rendering mode using 2D matrix transformations that cleanly reflects legible speed text off car windshields at night.',
-        'Over-Speed Threshold Alarms: Built custom velocity monitor triggers providing audio and visual cues when exceeding user-defined speed limits.',
-        'Journey History & Distance Odometer: Relational logging of trip durations, top speeds, average velocities, and routes with low battery overhead.'
-      ],
-      keyFeatures: [
-        'Accurate real-time GPS speedometer supporting both MPH and KM/H units',
-        'Windshield Heads-Up Display (HUD) mode for nocturnal driving visibility',
-        'Configurable over-speed limit audio and visual alert system',
-        'Digital odometer with trip history and total distance tracking',
-        'Integrated digital compass heading and altitude elevation readings',
-        'Multiple analog dial and digital dashboard visual themes'
-      ],
-      role: 'Mobile Product & Flutter Engineer',
-      techStack: ['Flutter', 'Dart', 'GPS / Location APIs', 'Compass Sensors', 'CustomPainter', 'Audio Alarms', 'SQLite']
-    }
   }
 ];
+

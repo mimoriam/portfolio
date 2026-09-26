@@ -134,32 +134,24 @@ export function CvModal({ isOpen, onClose }: CvModalProps) {
               <span>Published Google Play Mobile Applications</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Creator and developer of 9 production applications available on the Google Play Store, spanning GPS speed telemetry, cognitive healthcare, personal finance, computer vision, acoustic telemetry, automotive maintenance, and productivity.
+              Creator and developer of 8 production applications available on the Google Play Store, spanning cognitive healthcare, personal finance, computer vision, acoustic telemetry, automotive maintenance, and productivity.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">Speedometer PRO</span>
-                <span className="text-[11px] text-slate-400">GPS &amp; HUD Telemetry</span>
+                <span className="font-semibold text-white block">TapOkay</span>
+                <span className="text-[11px] text-slate-400">Check-In &amp; Brain Games</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">TapOkay</span>
-                <span className="text-[11px] text-slate-400">Cognitive Wellness &amp; Games</span>
+                <span className="font-semibold text-white block">Buck</span>
+                <span className="text-[11px] text-slate-400">Spending &amp; Budget Tracker</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">Buck</span>
-                <span className="text-[11px] text-slate-400">Offline Finance Tracker</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">Cube Solver</span>
+                <span className="font-semibold text-white block">Cube Solver</span>
                 <span className="text-[11px] text-slate-400">3D Camera Puzzle Solver</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">Nox Decibel</span>
-                <span className="text-[11px] text-slate-400">Acoustic Sound Level Meter</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                <span className="font-semibold text-white block truncate">Pot AI</span>
-                <span className="text-[11px] text-slate-400">Plant Identifier &amp; Care</span>
+                <span className="font-semibold text-white block">Pot</span>
+                <span className="text-[11px] text-slate-400">AI Plant Identifier &amp; Care</span>
               </div>
             </div>
           </div>

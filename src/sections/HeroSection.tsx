@@ -70,7 +70,7 @@ export function HeroSection({ apps, onOpenCaseStudy, onOpenCv }: HeroSectionProp
                 className="px-6 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-xl shadow-blue-600/30 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
               >
                 <Smartphone className="w-4 h-4" />
-                <span>Explore Shipped Apps (9)</span>
+                <span>Explore Shipped Apps (8)</span>
                 <ArrowDown className="w-3.5 h-3.5 ml-0.5" />
               </button>
 
@@ -95,7 +95,7 @@ export function HeroSection({ apps, onOpenCaseStudy, onOpenCv }: HeroSectionProp
             <div className="pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="flex flex-col">
                 <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  9 Apps
+                  8 Apps
                 </span>
                 <span className="text-xs text-slate-400 font-medium">
                   Shipped on Google Play
