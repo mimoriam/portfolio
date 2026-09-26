@@ -58,6 +58,7 @@ export function App() {
 
       {/* Deep Case Study Modal */}
       <AppModal
+        key={selectedApp?.id ?? 'none'}
         app={selectedApp}
         onClose={() => setSelectedApp(null)}
       />

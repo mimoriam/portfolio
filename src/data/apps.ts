@@ -108,6 +108,59 @@ export const APPS_DATA: AppProject[] = [
     }
   },
   {
+    id: 'speedometer',
+    name: 'Speedometer PRO',
+    publicTitle: 'Speedometer PRO・MPH Tracker',
+    packageId: 'com.appxtrastudio.speedometer',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.appxtrastudio.speedometer',
+    category: 'Travel & Navigation',
+    rating: 4.3,
+    tagline: 'High-precision GPS speedometer, Heads-Up Display (HUD) windshield mode, and trip telemetry.',
+    oneLiner: 'Real-time velocity tracking, HUD night windshield projection, speed limit safety alarms, and route telemetry for drivers.',
+    icon: './images/apps/speedometer/icon.webp',
+    screenshots: [
+      './images/apps/speedometer/screenshot-1.webp',
+      './images/apps/speedometer/screenshot-2.webp',
+      './images/apps/speedometer/screenshot-3.webp',
+      './images/apps/speedometer/screenshot-4.webp',
+      './images/apps/speedometer/screenshot-5.webp',
+    ],
+    featured: false,
+    accentColor: '#06b6d4', // electric cyan
+    badgeText: 'GPS Telemetry',
+    platform: 'Cross-Platform (Flutter)',
+    tags: ['Flutter', 'Dart', 'GPS Telemetry', 'Sensors', 'HUD Projection', 'Offline SQLite', 'Hardware Streams', 'Audio Alarms'],
+    metrics: [
+      { label: 'GPS Latency', value: '< 100ms' },
+      { label: 'HUD Mode', value: 'Windshield Mirror' },
+      { label: 'Tracking', value: 'GPS & Compass' },
+      { label: 'Telemetry', value: 'Offline SQLite' },
+    ],
+    caseStudy: {
+      overview: 'Speedometer PRO is a high-precision GPS velocity and trip telemetry application engineered in Flutter for drivers, motorcyclists, and cyclists. Features real-time speed measurement in MPH/KMH, digital odometer, Heads-Up Display (HUD) windshield reflection mode, audio-visual speed limit warnings, and complete offline trip logging.',
+      problem: 'Stock vehicle speedometers often show calibration drift with custom wheel sizes, and night driving with standard screens causes severe interior glare and eye fatigue. Existing GPS speedometer apps suffer from heavy battery drain and erratic velocity spikes due to unmitigated GPS jitter.',
+      solution: 'Engineered a battery-optimized mobile speedometer in Flutter with dynamic hardware sensor polling, low-latency GPS stream smoothing, inverted canvas rendering for HUD windshield reflection, and offline SQLite route persistence.',
+      technicalArchitecture: 'Architected with reactive Dart streams subscribing to device location hardware with exponential moving average filters to eliminate jitter. Built custom 60fps radial gauges and digital readout animations via Flutter CustomPainter, complemented by background isolate processing to keep tracking active while switching apps.',
+      engineeringHighlights: [
+        'Low-Latency GPS Stream Smoothing: Filtered raw GPS location jitter using exponential moving averages to deliver steady, accurate velocity readings without visual spikes.',
+        'Mirrored HUD Windshield Mode: Designed inverted canvas rendering allowing drivers to place their smartphone on the dashboard to reflect a crisp Heads-Up Display directly onto the windshield at night.',
+        'Audio-Visual Speed Threshold Alarms: Built configurable threshold monitors that trigger visual flash indicators and native sound cues when user-defined speed limits are exceeded.',
+        'Battery-Safe Sensor Polling: Optimized location update frequencies based on device velocity state to reduce CPU wakeups and preserve battery on long trips.',
+        'Offline Trip Route Telemetry: Persisted trip history, top speed, average velocity, distance traveled, and elevation changes directly into indexed SQLite tables.'
+      ],
+      keyFeatures: [
+        'Live analog and digital speedometer dial with MPH, KM/H, and Knots support',
+        'Heads-Up Display (HUD) windshield reflection mode for night driving',
+        'Trip distance odometer, travel duration, average velocity, and top speed telemetry',
+        'Configurable speed limit warnings with audio-visual notifications',
+        'Integrated digital compass orientation and offline trip logging',
+        'Dark-optimized high-contrast UI designed for automotive glare resistance'
+      ],
+      role: 'Mobile Architecture & Flutter Engineer',
+      techStack: ['Flutter', 'Dart', 'GPS Hardware APIs', 'CustomPainter', 'Compass Sensors', 'SQLite', 'Background Isolates', 'Audio Player']
+    }
+  },
+  {
     id: 'cube',
     name: 'Cube Solver',
     publicTitle: 'Cube Solver',
@@ -126,8 +179,8 @@ export const APPS_DATA: AppProject[] = [
       './images/apps/cube/screenshot-5.webp',
     ],
     featured: true,
-    accentColor: '#06b6d4', // cyan
-    badgeText: 'Camera & 3D Solver',
+    accentColor: '#a855f7', // purple
+    badgeText: 'Featured Flagship',
     platform: 'Cross-Platform (Flutter)',
     tags: ['Flutter', 'Dart', 'Camera APIs', 'Computer Vision', '3D Matrix Animation', 'Algorithm Optimization', 'Math Engine'],
     metrics: [
@@ -178,7 +231,7 @@ export const APPS_DATA: AppProject[] = [
       './images/apps/plant/screenshot-4.webp',
       './images/apps/plant/screenshot-5.webp',
     ],
-    featured: true,
+    featured: false,
     accentColor: '#84cc16', // lime / foliage
     badgeText: 'AI Vision & Care',
     platform: 'Cross-Platform (Flutter)',

@@ -4,7 +4,7 @@ import { Calendar, MapPin } from 'lucide-react';
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
+    <section id="experience" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
       <SectionHeader
         badge="Career Track Record"
         title="Professional Experience"
@@ -12,7 +12,7 @@ export function ExperienceSection() {
       />
 
       {/* Editorial Timeline */}
-      <div className="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-12">
+      <div className="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-6 sm:space-y-8">
         {EXPERIENCES.map((exp, idx) => (
           <div key={idx} className="relative pl-6 md:pl-10 group">
             {/* Timeline Node Dot */}

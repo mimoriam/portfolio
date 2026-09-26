@@ -5,7 +5,7 @@ import { GraduationCap, Award, ExternalLink } from 'lucide-react';
 
 export function EducationResearchSection() {
   return (
-    <section id="credentials" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
+    <section id="credentials" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
       <SectionHeader
         badge="Credentials"
         title="Education &amp; Research"

@@ -24,11 +24,6 @@ export function AppModal({ app, onClose }: AppModalProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [copiedPackage, setCopiedPackage] = useState(false);
 
-  // Reset screenshot index when app changes
-  useEffect(() => {
-    setActiveImageIndex(0);
-    setCopiedPackage(false);
-  }, [app]);
 
   // Handle ESC key to close
   useEffect(() => {
@@ -66,7 +61,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/80 backdrop-blur-xl overflow-y-auto animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-xl overflow-y-auto animate-fade-in"
       onClick={onClose}
     >
       <div
@@ -74,7 +69,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Sticky Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md z-20">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md z-20">
           <div className="flex items-center gap-3 min-w-0">
             <img
               src={app.icon}
@@ -102,7 +97,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
             <button
               onClick={onClose}
               aria-label="Close case study dialog"
-              className="p-2 rounded-xl text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-2 rounded-xl text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -110,52 +105,51 @@ export function AppModal({ app, onClose }: AppModalProps) {
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8">
+        <div className="flex-1 overflow-y-auto p-5 sm:p-6 md:p-8 space-y-6">
           {/* Main Visual & Overview Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Screenshot Viewer (Left 5 Cols) */}
+            {/* Screenshot Viewer (Left 5 Cols) - Calibrated to 9:16 with zero cropping */}
             <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="relative w-full max-w-[280px] sm:max-w-[300px] h-[520px] sm:h-[560px] rounded-[36px] bg-slate-950 border-4 border-slate-800 shadow-2xl overflow-hidden flex flex-col">
-                {/* Top Notch */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-900 rounded-full z-10 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-slate-800 mr-2" />
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
-                </div>
+              <div className="relative w-full max-w-[280px] sm:max-w-[310px] aspect-[9/16] rounded-[32px] p-2 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border-2 border-slate-700/80 shadow-2xl overflow-hidden flex flex-col justify-center">
+                {/* Speaker indicator */}
+                <div className="w-10 h-1 rounded-full bg-slate-700/80 mx-auto mb-2" />
 
-                {/* Screenshot Image */}
-                <div className="relative flex-1 bg-slate-950">
+                {/* Screenshot Image Container with object-contain */}
+                <div className="relative w-full flex-1 rounded-[22px] overflow-hidden bg-slate-950 border border-slate-800/60 flex items-center justify-center">
                   <img
                     src={app.screenshots[activeImageIndex]}
                     alt={`${app.name} preview ${activeImageIndex + 1}`}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-contain bg-slate-950 select-none"
                   />
+
+                  {/* Nav Arrows Overlay */}
+                  {app.screenshots.length > 1 && (
+                    <>
+                      <button
+                        onClick={() =>
+                          setActiveImageIndex(
+                            (prev) => (prev - 1 + app.screenshots.length) % app.screenshots.length
+                          )
+                        }
+                        aria-label="Previous screenshot"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700 shadow-lg transition-transform active:scale-95 cursor-pointer z-10"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() =>
+                          setActiveImageIndex((prev) => (prev + 1) % app.screenshots.length)
+                        }
+                        aria-label="Next screenshot"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700 shadow-lg transition-transform active:scale-95 cursor-pointer z-10"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </>
+                  )}
                 </div>
 
-                {/* Nav Arrows Overlay */}
-                {app.screenshots.length > 1 && (
-                  <>
-                    <button
-                      onClick={() =>
-                        setActiveImageIndex(
-                          (prev) => (prev - 1 + app.screenshots.length) % app.screenshots.length
-                        )
-                      }
-                      aria-label="Previous screenshot"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700 shadow-lg transition-transform active:scale-95"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() =>
-                        setActiveImageIndex((prev) => (prev + 1) % app.screenshots.length)
-                      }
-                      aria-label="Next screenshot"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700 shadow-lg transition-transform active:scale-95"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </>
-                )}
+                <div className="w-16 h-1 rounded-full bg-slate-600/50 mx-auto mt-2" />
               </div>
 
               {/* Thumbnail Strip */}
@@ -166,7 +160,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
                       key={idx}
                       onClick={() => setActiveImageIndex(idx)}
                       aria-label={`Show screenshot ${idx + 1}`}
-                      className={`relative w-11 h-18 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                      className={`relative w-11 h-18 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 cursor-pointer ${
                         idx === activeImageIndex
                           ? 'border-blue-500 scale-105 shadow-md shadow-blue-500/20'
                           : 'border-slate-800 opacity-60 hover:opacity-100'
@@ -179,11 +173,11 @@ export function AppModal({ app, onClose }: AppModalProps) {
               )}
             </div>
 
-            {/* Case Study Written Content (Right 7 Cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Case Study Content (Right 7 Cols) */}
+            <div className="lg:col-span-7 space-y-5">
               {/* Meta Tags Bar */}
-              <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
+              <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
                   {app.rating && (
                     <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold text-xs">
                       <Star className="w-3.5 h-3.5 fill-amber-400" />
@@ -200,7 +194,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
                 {/* Package ID Copyable Pill */}
                 <button
                   onClick={handleCopyPackage}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition-colors"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition-colors cursor-pointer"
                   title="Click to copy package ID"
                 >
                   <span>{app.packageId}</span>
@@ -212,51 +206,51 @@ export function AppModal({ app, onClose }: AppModalProps) {
                 </button>
               </div>
 
-              {/* Section 1: Overview & Problem */}
-              <div className="space-y-4">
-                <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-800/60">
+              {/* Problem & Solution Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60">
                   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-rose-400 mb-2">
                     <ShieldAlert className="w-4 h-4" />
-                    <span>The User Problem</span>
+                    <span>Problem Statement</span>
                   </div>
-                  <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {app.caseStudy.problem}
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-800/60">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-2">
+                <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>The Product Solution</span>
+                    <span>Product Solution</span>
                   </div>
-                  <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {app.caseStudy.solution}
                   </p>
                 </div>
               </div>
 
-              {/* Section 2: Architecture & Challenges */}
-              <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-800/60">
+              {/* Architecture & System Design */}
+              <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-purple-400 mb-2">
                   <Layers className="w-4 h-4" />
-                  <span>Mobile Architecture &amp; System Design</span>
+                  <span>Technical Architecture</span>
                 </div>
-                <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   {app.caseStudy.technicalArchitecture}
                 </p>
               </div>
 
-              {/* Section 3: Engineering Highlights */}
-              <div className="space-y-3">
+              {/* Engineering Highlights */}
+              <div className="space-y-2.5">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   <Cpu className="w-4 h-4" />
-                  <span>Key Engineering Challenges &amp; Technical Highlights</span>
+                  <span>Key Technical Highlights</span>
                 </div>
                 <div className="space-y-2">
                   {app.caseStudy.engineeringHighlights.map((highlight, hIdx) => (
                     <div
                       key={hIdx}
-                      className="p-3.5 rounded-xl bg-slate-950/50 border border-slate-800/60 text-xs md:text-sm text-slate-300 leading-relaxed flex items-start gap-2.5"
+                      className="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60 text-xs sm:text-sm text-slate-300 leading-relaxed flex items-start gap-2.5"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
                       <span>{highlight}</span>
@@ -265,31 +259,13 @@ export function AppModal({ app, onClose }: AppModalProps) {
                 </div>
               </div>
 
-              {/* Section 4: Key Capabilities */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Functional Capabilities Built
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {app.caseStudy.keyFeatures.map((feature, fIdx) => (
-                    <div
-                      key={fIdx}
-                      className="p-2.5 rounded-xl bg-slate-950/30 border border-slate-800/40 text-xs text-slate-300 flex items-start gap-2"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Section 5: Tech Stack & Role */}
-              <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Tech Stack & Role */}
+              <div className="pt-3 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider block mb-1">
-                    Role in Project
+                  <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wider block mb-0.5">
+                    Engineering Role
                   </span>
-                  <span className="text-sm font-semibold text-white">
+                  <span className="text-xs sm:text-sm font-semibold text-white">
                     {app.caseStudy.role}
                   </span>
                 </div>
@@ -298,7 +274,7 @@ export function AppModal({ app, onClose }: AppModalProps) {
                   {app.caseStudy.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800 border border-slate-700 text-slate-300"
+                      className="px-2 py-0.5 rounded-md text-xs font-medium bg-slate-800 border border-slate-700 text-slate-300"
                     >
                       {tech}
                     </span>
@@ -310,16 +286,16 @@ export function AppModal({ app, onClose }: AppModalProps) {
         </div>
 
         {/* Modal Sticky Footer Bar */}
-        <div className="px-6 py-4 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md flex flex-wrap items-center justify-between gap-4 z-20">
+        <div className="px-5 sm:px-6 py-4 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md flex flex-wrap items-center justify-between gap-4 z-20">
           <div className="flex items-center gap-2 text-xs text-slate-400">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span>Published on Google Play • Live and verified application</span>
+            <span>Published on Google Play • Live &amp; Verified APK</span>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition-colors"
+              className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition-colors cursor-pointer"
             >
               Close
             </button>

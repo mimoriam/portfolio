@@ -41,9 +41,9 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
+    <section id="contact" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
       <SectionHeader
-        badge="Let's Connect"
+        badge="Direct Contact"
         title="Looking for a Flutter Developer Who Ships?"
         subtitle="Currently open to Mobile App Developer, Flutter Developer, and Cross-Platform Mobile roles. Let's discuss your product roadmap."
       />
@@ -59,7 +59,7 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
               </span>
               <button
                 onClick={handleCopyEmail}
-                className="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+                className="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
                 title="Copy email to clipboard"
               >
                 {copiedEmail ? (
@@ -97,7 +97,7 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
               <span>0312 6315604</span>
             </a>
             <p className="text-[11px] text-slate-400">
-              +92 312 6315604 (International)
+              +92 312 6315604 (International / WhatsApp)
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
               href="https://github.com/mimoriam"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-xs transition-colors group"
+              className="p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-xs transition-colors group"
             >
               <span className="text-slate-400 block mb-1">GitHub Profile</span>
               <span className="font-semibold text-white flex items-center gap-1 group-hover:text-blue-400">
@@ -130,7 +130,7 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
             <a
               href="./Humza_Asif_CV.pdf"
               download="Humza_Asif_Mobile_Developer_CV.pdf"
-              className="w-full py-3 px-4 rounded-2xl bg-slate-850 hover:bg-slate-800 text-white font-semibold text-xs border border-slate-700/80 shadow-md transition-all flex items-center justify-center gap-2 hover:border-slate-600"
+              className="w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs border border-slate-700/80 shadow-md transition-all flex items-center justify-center gap-2 hover:border-slate-600 cursor-pointer"
             >
               <Download className="w-4 h-4 text-blue-400" />
               <span>Download Official Resume (PDF)</span>
@@ -138,7 +138,7 @@ export function ContactSection({ onOpenCv }: ContactSectionProps) {
 
             <button
               onClick={onOpenCv}
-              className="w-full py-3 px-4 rounded-2xl bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition-all flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 rounded-2xl bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <FileText className="w-4 h-4 text-slate-400" />
               <span>Inspect CV on Screen</span>

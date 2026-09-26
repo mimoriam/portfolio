@@ -4,15 +4,15 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 export function LifecycleSection() {
   return (
-    <section id="lifecycle" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+    <section id="lifecycle" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       <SectionHeader
-        badge="Full Product Lifecycle"
-        title="From Concept to the App Store"
-        subtitle="I build complete, functioning mobile applications across every phase of delivery—not merely converting mockups into static widgets."
+        badge="End-to-End Delivery"
+        title="From Blank Workspace to Google Play"
+        subtitle="I build complete, functioning mobile applications across every phase of delivery — not merely converting mockups into static widgets."
       />
 
-      {/* 6 Step Lifecycle Process Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 4 Step Lifecycle Process Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {LIFECYCLE_PHASES.map((phase) => (
           <div
             key={phase.step}
@@ -29,22 +29,22 @@ export function LifecycleSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-white mb-2.5 group-hover:text-blue-400 transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                 {phase.title}
               </h3>
 
               {/* Description */}
-              <p className="text-xs md:text-sm text-slate-400 leading-relaxed mb-6">
+              <p className="text-xs text-slate-400 leading-relaxed mb-5">
                 {phase.description}
               </p>
             </div>
 
             {/* Checkpoints */}
-            <div className="space-y-2 pt-4 border-t border-slate-800/60">
+            <div className="space-y-2 pt-3 border-t border-slate-800/60">
               {phase.capabilities.map((cap, cIdx) => (
-                <div key={cIdx} className="flex items-center gap-2 text-xs text-slate-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                  <span>{cap}</span>
+                <div key={cIdx} className="flex items-start gap-2 text-xs text-slate-300">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span className="leading-snug">{cap}</span>
                 </div>
               ))}
             </div>
@@ -52,21 +52,21 @@ export function LifecycleSection() {
         ))}
       </div>
 
-      {/* Differentiator Callout Banner */}
-      <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-blue-900/20 via-slate-900/50 to-indigo-900/20 border border-blue-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      {/* Proven Autonomous Delivery Banner */}
+      <div className="mt-6 sm:mt-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-900/20 via-slate-900/50 to-indigo-900/20 border border-blue-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <div>
           <h4 className="text-sm font-bold text-white mb-1">
-            Proven End-to-End Execution
+            Proven Autonomous Shipping Capability
           </h4>
           <p className="text-xs text-slate-400 max-w-2xl">
-            Having built and shipped 8 independent apps on Google Play, I handle every constraint: memory overhead, offline fallbacks, Google Play policies, keystore signing, and responsive device layouts.
+            Having built and shipped 9 independent apps on Google Play, I handle every constraint: memory overhead, offline fallbacks, Google Play policies, keystore signing, and cross-device responsiveness.
           </p>
         </div>
         <a
           href="#apps"
           className="text-xs font-semibold text-blue-400 hover:text-blue-300 whitespace-nowrap bg-blue-500/10 hover:bg-blue-500/20 px-4 py-2.5 rounded-xl border border-blue-500/30 flex items-center gap-1.5 transition-colors"
         >
-          <span>See Shipped Proof</span>
+          <span>See Shipped Proof (9)</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </a>
       </div>

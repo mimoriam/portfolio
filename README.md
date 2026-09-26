@@ -8,7 +8,7 @@
 
   [![Flutter](https://img.shields.io/badge/Flutter-Cross--Platform-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
   [![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=flat-square&logo=dart&logoColor=white)](https://dart.dev)
-  [![Google Play](https://img.shields.io/badge/Google%20Play-8%20Shipped%20Apps-34A853?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps)
+  [![Google Play](https://img.shields.io/badge/Google%20Play-9%20Shipped%20Apps-34A853?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps)
   [![IEEE Publication](https://img.shields.io/badge/IEEE%20ICET%202023-Published%20Paper-00629B?style=flat-square&logo=ieee&logoColor=white)](https://doi.org/10.1109/ICET59753.2023.10374768)
   [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -17,7 +17,7 @@
 
   <p align="center">
     <strong>Production mobile developer portfolio engineered specifically for Mobile App / Flutter / Cross-Platform Engineering roles.</strong><br />
-    Showcasing 8 live applications published on Google Play, hardware sensor integrations, offline-first architectures, and end-to-end store release lifecycle.
+    Showcasing 9 live applications published on Google Play, hardware sensor integrations, offline-first architectures, and end-to-end store release lifecycle.
   </p>
 
 </div>
@@ -43,7 +43,7 @@ If you own a custom domain (e.g. `humza.dev`, `humzadev.com`, or any subdomain):
 |:---|:---|
 | **Candidate** | **Humza Asif** |
 | **Core Specialization** | Mobile App Developer • Flutter & Cross-Platform Specialist |
-| **Track Record** | **8 Production Applications** published live on the Google Play Store |
+| **Track Record** | **9 Production Applications** published live on the Google Play Store |
 | **Average Store Rating** | **4.5+ ★** across thousands of active store downloads |
 | **Hardware & Native** | Camera 2D/3D matrix scanner, microphone SPL audio decibel telemetry, device sensors, offline SQLite |
 | **Academics** | **M.Sc. in Computer Science** (NFC-IET, 2024–2026) • **B.Sc. in Computer Science** (MNS-UET, 2019–2023) |
@@ -61,11 +61,12 @@ Every featured project is a live, verified Android application shipped to produc
 | 1 | **TapOkay** | `com.app.tapokay` | Health & Fitness | 5.0 ★ | Senior daily check-in, 10 cognitive mini-games, encrypted emergency vault, caregiver escalation. | [Install](https://play.google.com/store/apps/details?id=com.app.tapokay) |
 | 2 | **Buck / Budget Manager** | `xtra.budget.manager` | Finance | 4.8 ★ | Offline-first SQLite ledger, multi-currency budget planner, recurring subscription expense analytics. | [Install](https://play.google.com/store/apps/details?id=xtra.budget.manager) |
 | 3 | **Cube Solver** | `xtra.cube.solver.cube_solver` | Tools / 3D | 4.7 ★ | Real-time camera color face scanner, interactive 3D visualizer, Kociemba optimal two-phase algorithm. | [Install](https://play.google.com/store/apps/details?id=xtra.cube.solver.cube_solver) |
-| 4 | **Pot AI Plant Identifier** | `ai.plant.detector` | Education & AI | 4.7 ★ | 500,000+ species neural recognition, leaf disease diagnostics, weather-adaptive watering reminders. | [Install](https://play.google.com/store/apps/details?id=ai.plant.detector) |
-| 5 | **Nox Decibel Meter** | `com.appxtrastudio.decimalmeter` | Tools / Audio | 4.3 ★ | Hardware microphone PCM stream sampling, real-time FFT/SPL decibel gauge, calibration profiles. | [Install](https://play.google.com/store/apps/details?id=com.appxtrastudio.decimalmeter) |
-| 6 | **CarO Car Maintenance** | `xtra.car.maintenance` | Auto & Vehicles | 4.2 ★ | Multi-vehicle maintenance scheduling, odometer interval tracker, fuel economy calculations. | [Install](https://play.google.com/store/apps/details?id=xtra.car.maintenance) |
-| 7 | **Aim Pomodoro Timer** | `xtra.pomodoro.timer` | Productivity | 4.6 ★ | Focus interval cycles, background task execution, local notification triggers, streak tracking. | [Install](https://play.google.com/store/apps/details?id=xtra.pomodoro.timer) |
-| 8 | **Raze Quit Addiction** | `xtra.no.fap` | Health & Lifestyle | 4.4 ★ | Precision clean time counter, relapse trigger analytics, anonymous peer community accountability. | [Install](https://play.google.com/store/apps/details?id=xtra.no.fap) |
+| 4 | **Speedometer PRO** | `com.appxtrastudio.speedometer` | Travel & Navigation | 4.3 ★ | Low-latency GPS velocity streams, Heads-Up Display (HUD) windshield reflection, offline trip telemetry. | [Install](https://play.google.com/store/apps/details?id=com.appxtrastudio.speedometer) |
+| 5 | **Pot AI Plant Identifier** | `ai.plant.detector` | Education & AI | 4.7 ★ | 500,000+ species neural recognition, leaf disease diagnostics, weather-adaptive watering reminders. | [Install](https://play.google.com/store/apps/details?id=ai.plant.detector) |
+| 6 | **Nox Decibel Meter** | `com.appxtrastudio.decimalmeter` | Tools / Audio | 4.3 ★ | Hardware microphone PCM stream sampling, real-time FFT/SPL decibel gauge, calibration profiles. | [Install](https://play.google.com/store/apps/details?id=com.appxtrastudio.decimalmeter) |
+| 7 | **CarO Car Maintenance** | `xtra.car.maintenance` | Auto & Vehicles | 4.2 ★ | Multi-vehicle maintenance scheduling, odometer interval tracker, fuel economy calculations. | [Install](https://play.google.com/store/apps/details?id=xtra.car.maintenance) |
+| 8 | **Aim Pomodoro Timer** | `xtra.pomodoro.timer` | Productivity | 4.6 ★ | Focus interval cycles, background task execution, local notification triggers, streak tracking. | [Install](https://play.google.com/store/apps/details?id=xtra.pomodoro.timer) |
+| 9 | **Raze Quit Addiction** | `xtra.no.fap` | Health & Lifestyle | 4.4 ★ | Precision clean time counter, relapse trigger analytics, anonymous peer community accountability. | [Install](https://play.google.com/store/apps/details?id=xtra.no.fap) |
 
 ---
 

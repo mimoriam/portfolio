@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { AppProject } from '../types';
-import { ExternalLink, Star } from 'lucide-react';
+import { ExternalLink, Star, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 interface HeroDeviceFrameProps {
   apps: AppProject[];
@@ -15,13 +15,13 @@ export function HeroDeviceFrame({ apps, onOpenCaseStudy }: HeroDeviceFrameProps)
   const featuredApps = apps.filter((app) => app.featured);
   const currentApp = featuredApps[activeAppIndex] || apps[0];
 
-  // Auto-advance screenshots every 3.5s unless hovered
+  // Auto-advance screenshots every 4s unless paused / hovered
   useEffect(() => {
     if (isPaused || !currentApp?.screenshots?.length) return;
 
     const timer = setInterval(() => {
       setActiveScreenshotIndex((prev) => (prev + 1) % currentApp.screenshots.length);
-    }, 3500);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [currentApp, isPaused]);
@@ -32,25 +32,39 @@ export function HeroDeviceFrame({ apps, onOpenCaseStudy }: HeroDeviceFrameProps)
     setActiveScreenshotIndex(0);
   };
 
+  const handlePrevScreenshot = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!currentApp?.screenshots?.length) return;
+    setActiveScreenshotIndex(
+      (prev) => (prev - 1 + currentApp.screenshots.length) % currentApp.screenshots.length
+    );
+  };
+
+  const handleNextScreenshot = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!currentApp?.screenshots?.length) return;
+    setActiveScreenshotIndex((prev) => (prev + 1) % currentApp.screenshots.length);
+  };
+
   return (
-    <div className="relative flex flex-col items-center">
-      {/* Glow Backdrop */}
+    <div className="relative flex flex-col items-center w-full max-w-[360px] mx-auto">
+      {/* Dynamic Ambient Glow matching active app accent color */}
       <div
-        className="absolute -inset-4 md:-inset-8 rounded-[48px] opacity-40 blur-3xl transition-colors duration-700 pointer-events-none"
+        className="absolute -inset-4 sm:-inset-8 rounded-[48px] opacity-40 blur-3xl transition-all duration-700 pointer-events-none"
         style={{
-          background: `radial-gradient(circle, ${currentApp.accentColor}44 0%, rgba(59,130,246,0.1) 70%, transparent 100%)`,
+          background: `radial-gradient(circle, ${currentApp.accentColor}55 0%, rgba(59,130,246,0.15) 60%, transparent 100%)`,
         }}
       />
 
       {/* App Switcher Tabs above phone */}
-      <div className="flex items-center gap-1.5 p-1 mb-6 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-md shadow-xl max-w-full overflow-x-auto">
+      <div className="flex items-center gap-1.5 p-1 mb-5 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-md shadow-xl max-w-full overflow-x-auto z-10">
         {featuredApps.map((app, idx) => {
           const isActive = idx === activeAppIndex;
           return (
             <button
               key={app.id}
               onClick={() => handleAppSelect(idx)}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 isActive
                   ? 'bg-slate-800 text-white shadow-md border border-slate-700/80 scale-[1.02]'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
@@ -59,90 +73,89 @@ export function HeroDeviceFrame({ apps, onOpenCaseStudy }: HeroDeviceFrameProps)
               <img
                 src={app.icon}
                 alt=""
-                className="w-4 h-4 rounded-md object-cover"
+                className="w-4 h-4 rounded-md object-cover shadow-sm"
                 loading="lazy"
               />
-              <span className="hidden sm:inline">{app.name}</span>
+              <span>{app.name}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Smartphone Chassis */}
+      {/* Smartphone Chassis - Calibrated to 9:16 aspect ratio so zero pixels are cropped */}
       <div
-        className="device-frame w-[280px] sm:w-[320px] md:w-[340px] h-[580px] sm:h-[640px] md:h-[680px] flex flex-col relative select-none"
+        className="relative w-[280px] sm:w-[320px] rounded-[38px] p-2.5 sm:p-3 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border-2 border-slate-700/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_-10px_rgba(59,130,246,0.2)] select-none transition-transform duration-300 hover:scale-[1.01]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Dynamic Island / Top Camera Pill */}
-        <div className="device-notch flex items-center justify-center">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-slate-800 mr-2" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#00E676]/60" />
+        {/* Speaker Ear-piece & Ambient Sensor Bar */}
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <div className="w-12 h-1 rounded-full bg-slate-700/80" />
+          <div className="w-2 h-2 rounded-full bg-slate-800 border border-slate-700" />
         </div>
 
-        {/* Mobile Status Bar */}
-        <div className="pt-3 px-6 pb-2 flex items-center justify-between text-[11px] font-semibold text-slate-300 z-10">
-          <span>9:41</span>
-          <div className="flex items-center gap-1.5">
-            <span className="text-[10px] tracking-tighter font-mono">5G</span>
-            <div className="w-5 h-2.5 rounded-[4px] border border-slate-400 p-[1px] flex items-center">
-              <div className="w-full h-full bg-slate-200 rounded-[2px]" />
-            </div>
-          </div>
-        </div>
-
-        {/* Active App Header Pill */}
-        <div className="px-4 py-2 mx-3 mb-2 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800/80 flex items-center justify-between z-10">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <img
-              src={currentApp.icon}
-              alt={currentApp.name}
-              className="w-7 h-7 rounded-lg object-cover border border-white/10 shadow-sm"
-            />
-            <div className="min-w-0">
-              <h4 className="text-xs font-bold text-white truncate leading-tight">
-                {currentApp.name}
-              </h4>
-              <p className="text-[10px] text-slate-400 truncate">
-                {currentApp.category}
-              </p>
-            </div>
-          </div>
-          {currentApp.rating ? (
-            <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold">
-              <Star className="w-2.5 h-2.5 fill-amber-400" />
-              <span>{currentApp.rating}</span>
-            </div>
-          ) : (
-            <span className="px-1.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 text-[10px] font-medium">
-              Live
-            </span>
-          )}
-        </div>
-
-        {/* Main Screenshot Screen Area */}
-        <div className="relative flex-1 mx-3 rounded-2xl overflow-hidden bg-slate-950 border border-slate-800/50 shadow-inner group">
+        {/* Screen Area: Perfect 9:16 Aspect Ratio matching Google Play showcase cards */}
+        <div className="relative w-full aspect-[9/16] rounded-[26px] overflow-hidden bg-slate-950 border border-slate-800/70 shadow-inner group">
           {currentApp.screenshots && currentApp.screenshots.length > 0 ? (
             <img
               key={`${currentApp.id}-${activeScreenshotIndex}`}
               src={currentApp.screenshots[activeScreenshotIndex]}
-              alt={`${currentApp.name} screenshot ${activeScreenshotIndex + 1}`}
-              className="w-full h-full object-cover object-top transition-opacity duration-300"
+              alt={`${currentApp.name} showcase preview ${activeScreenshotIndex + 1}`}
+              className="w-full h-full object-contain bg-slate-950 transition-opacity duration-300"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-slate-500 text-xs">
-              Preview Available
+              Live Showcase Available
             </div>
           )}
 
-          {/* Quick Action Overlay on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4">
+          {/* Quick Floating Badge on Top of Screen */}
+          <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none z-10">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-950/85 backdrop-blur-md border border-slate-800 text-[10px] font-semibold text-slate-200 shadow-md">
+              <Sparkles className="w-2.5 h-2.5 text-blue-400" />
+              <span>{currentApp.name}</span>
+            </span>
+
+            {currentApp.rating ? (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/15 backdrop-blur-md border border-amber-500/30 text-[10px] font-bold text-amber-400 shadow-md">
+                <Star className="w-2.5 h-2.5 fill-amber-400" />
+                <span>{currentApp.rating}</span>
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 backdrop-blur-md border border-emerald-500/30 text-[10px] font-medium text-emerald-400 shadow-md">
+                Live App
+              </span>
+            )}
+          </div>
+
+          {/* Navigation Chevron Buttons */}
+          {currentApp.screenshots && currentApp.screenshots.length > 1 && (
+            <>
+              <button
+                onClick={handlePrevScreenshot}
+                aria-label="Previous screenshot"
+                className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700/80 shadow-lg transition-transform active:scale-95 opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-20"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleNextScreenshot}
+                aria-label="Next screenshot"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white backdrop-blur-md border border-slate-700/80 shadow-lg transition-transform active:scale-95 opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-20"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </>
+          )}
+
+          {/* Hover Overlay with Instant CTAs */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-3.5 z-10">
             <div className="flex flex-col gap-2">
               <button
                 onClick={() => onOpenCaseStudy(currentApp)}
-                className="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                <span>Read Full Case Study</span>
+                <span>Read Case Study &amp; Specs</span>
               </button>
               <a
                 href={currentApp.playStoreUrl}
@@ -157,15 +170,15 @@ export function HeroDeviceFrame({ apps, onOpenCaseStudy }: HeroDeviceFrameProps)
           </div>
         </div>
 
-        {/* Screenshot Dots & Navigation Bar */}
-        <div className="p-3 flex items-center justify-between text-slate-400 z-10">
+        {/* Screenshot Dots Navigation Bar */}
+        <div className="pt-2.5 pb-1 flex items-center justify-between px-2 text-slate-400">
           <div className="flex items-center gap-1.5">
-            {currentApp.screenshots?.slice(0, 5).map((_, dotIdx) => (
+            {currentApp.screenshots?.slice(0, 6).map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 onClick={() => setActiveScreenshotIndex(dotIdx)}
                 aria-label={`View screenshot ${dotIdx + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   dotIdx === activeScreenshotIndex
                     ? 'w-5 bg-blue-500'
                     : 'w-1.5 bg-slate-700 hover:bg-slate-500'
@@ -176,15 +189,15 @@ export function HeroDeviceFrame({ apps, onOpenCaseStudy }: HeroDeviceFrameProps)
 
           <button
             onClick={() => onOpenCaseStudy(currentApp)}
-            className="text-[11px] font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1"
+            className="text-[11px] font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer"
           >
             <span>Specs</span>
             <span aria-hidden="true">&rarr;</span>
           </button>
         </div>
 
-        {/* Home Indicator Bar */}
-        <div className="w-28 h-1 rounded-full bg-slate-600/60 mx-auto mb-2" />
+        {/* Realistic Home Indicator Bar */}
+        <div className="w-24 h-1 rounded-full bg-slate-600/50 mx-auto mt-1" />
       </div>
     </div>
   );

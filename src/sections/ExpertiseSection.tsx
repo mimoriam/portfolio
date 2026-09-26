@@ -6,46 +6,52 @@ import {
   Database,
   Cloud,
   CheckCircle2,
-  Sparkles,
-  Layers,
   Terminal,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 
-export function ExpertiseSection() {
-  const pillarIcons = [
-    <Smartphone className="w-5 h-5 text-blue-400" />,
-    <Cpu className="w-5 h-5 text-emerald-400" />,
-    <Database className="w-5 h-5 text-purple-400" />,
-    <Cloud className="w-5 h-5 text-amber-400" />,
-  ];
+const getPillarIcon = (idx: number) => {
+  switch (idx) {
+    case 0:
+      return <Smartphone className="w-5 h-5 text-blue-400" />;
+    case 1:
+      return <Cpu className="w-5 h-5 text-emerald-400" />;
+    case 2:
+      return <Database className="w-5 h-5 text-purple-400" />;
+    default:
+      return <Cloud className="w-5 h-5 text-amber-400" />;
+  }
+};
 
+export function ExpertiseSection() {
   return (
-    <section id="expertise" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+    <section id="expertise" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       <SectionHeader
         badge="Engineering Competencies"
-        title="Mobile Engineering Expertise"
-        subtitle="Specialized in building high-performance cross-platform Flutter applications backed by native device integrations and scalable architecture."
+        title="Mobile Engineering Superpowers"
+        subtitle="Specialized in building high-performance cross-platform Flutter applications backed by native device integrations, offline SQLite engines, and production store delivery."
       />
 
-      {/* 4 Pillars of Mobile Engineering Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-20">
+      {/* 4 Superpower Pillars Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-8 sm:mb-10">
         {EXPERTISE_PILLARS.map((pillar, idx) => (
           <div
             key={pillar.number}
-            className="group p-6 sm:p-8 rounded-3xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 hover:border-slate-700/80 transition-all duration-300 shadow-xl relative overflow-hidden flex flex-col justify-between"
+            className="group p-6 sm:p-7 rounded-3xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 hover:border-slate-700/80 transition-all duration-300 shadow-xl relative overflow-hidden flex flex-col justify-between"
           >
             {/* Top Right Step Index */}
-            <div className="absolute top-6 right-8 text-3xl font-black text-slate-800/60 select-none group-hover:text-slate-700/60 transition-colors">
+            <div className="absolute top-5 right-6 text-2xl font-black text-slate-800/60 select-none group-hover:text-slate-700/60 transition-colors">
               {pillar.number}
             </div>
 
             <div>
-              {/* Pillar Header with Icon */}
-              <div className="flex items-center gap-3 mb-4">
+              {/* Header with Icon */}
+              <div className="flex items-center gap-3 mb-3">
                 <div className="p-2.5 rounded-2xl bg-slate-800/80 border border-slate-700/80 shadow-md">
-                  {pillarIcons[idx]}
+                  {getPillarIcon(idx)}
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
                   {pillar.title}
                 </h3>
               </div>
@@ -56,14 +62,14 @@ export function ExpertiseSection() {
               </p>
 
               {/* Description */}
-              <p className="text-xs md:text-sm text-slate-400 mb-6 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 mb-5 leading-relaxed">
                 {pillar.description}
               </p>
 
               {/* Concrete Competency Bullet Points */}
-              <div className="space-y-2 pt-2 border-t border-slate-800/60">
+              <div className="space-y-2 pt-3 border-t border-slate-800/60">
                 {pillar.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="flex items-center gap-2.5 text-xs text-slate-300">
+                  <div key={sIdx} className="flex items-center gap-2 text-xs text-slate-300">
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
                     <span>{skill}</span>
                   </div>
@@ -74,65 +80,67 @@ export function ExpertiseSection() {
         ))}
       </div>
 
-      {/* Structured Technology Stack (Mobile-First Hierarchy) */}
-      <div className="rounded-3xl bg-slate-900/40 border border-slate-800/80 p-6 md:p-10 shadow-2xl">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-800">
+      {/* Structured Technology Stack at a Glance */}
+      <div className="rounded-3xl bg-slate-900/40 border border-slate-800/80 p-6 sm:p-8 shadow-2xl">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6 pb-5 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">
               <Terminal className="w-4 h-4" />
-              <span>Technology Architecture</span>
+              <span>Technology Stack</span>
             </div>
-            <h3 className="text-2xl font-bold text-white">
-              Organized Stack: Mobile-First Hierarchy
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              Mobile-First Tech Stack at a Glance
             </h3>
           </div>
           <p className="text-xs text-slate-400 max-w-md">
-            Mobile development is the primary identity. Supporting backend, database, and cloud skills reinforce complete product shipping capability.
+            Production-verified technologies utilized across 9 published Google Play applications.
           </p>
         </div>
 
-        <div className="space-y-8">
-          {/* Primary Mobile Stack */}
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Primary Specialization (Core Mobile &amp; Flutter)</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Core Mobile */}
+          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/70">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-3">
+              <Zap className="w-3.5 h-3.5" />
+              <span>Core Mobile (Flutter)</span>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {TECH_STACK.primary.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-700/80 hover:border-emerald-500/40 transition-colors shadow-sm"
-                >
-                  <span className="text-xs font-bold text-white block mb-0.5">
-                    {tech.name}
-                  </span>
-                  <span className="text-[11px] text-emerald-400/80 font-medium">
-                    {tech.category}
-                  </span>
+            <div className="space-y-1.5">
+              {TECH_STACK.core.map((tech) => (
+                <div key={tech.name} className="flex items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800/60 text-xs">
+                  <span className="font-semibold text-white">{tech.name}</span>
+                  <span className="text-[10px] text-emerald-400/80 font-medium">{tech.category}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Supporting Infrastructure Stack */}
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              <Layers className="w-3.5 h-3.5 text-slate-400" />
-              <span>Supporting Infrastructure (Backend, AI, Security &amp; Delivery)</span>
+          {/* Hardware & Persistence */}
+          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/70">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-400 mb-3">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>Sensors &amp; Persistence</span>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-              {TECH_STACK.supporting.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 text-xs hover:border-slate-700 transition-colors"
-                >
-                  <span className="font-semibold text-slate-200 block truncate">
-                    {tech.name}
-                  </span>
-                  <span className="text-[10px] text-slate-500 block truncate">
-                    {tech.category}
-                  </span>
+            <div className="space-y-1.5">
+              {TECH_STACK.hardware.map((tech) => (
+                <div key={tech.name} className="flex items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800/60 text-xs">
+                  <span className="font-semibold text-white">{tech.name}</span>
+                  <span className="text-[10px] text-blue-400/80 font-medium">{tech.category}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Delivery & Backend */}
+          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/70">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-3">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Delivery &amp; Systems</span>
+            </div>
+            <div className="space-y-1.5">
+              {TECH_STACK.delivery.map((tech) => (
+                <div key={tech.name} className="flex items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800/60 text-xs">
+                  <span className="font-semibold text-white">{tech.name}</span>
+                  <span className="text-[10px] text-purple-400/80 font-medium">{tech.category}</span>
                 </div>
               ))}
             </div>
